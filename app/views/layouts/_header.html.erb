@@ -14,29 +14,17 @@
       <div class="NavigationBar__icons">
         <ul class="NavigationIconList">
           <li class="NavigationIconList__item NavigationIconList__item--search">
-            <a
-              href="javascript:void(0)"
-              class="NavigationIconWrapper dropdown-toggle"
-              data-toggle="dropdown"
-            >
-             
-              <span class="NavigationIconWrapper__label">見つける</span>
-            </a>
-
-            <div class="NavigationSearchForm">
-              <input
-                class="NavigationSearchForm__input dropdown-menu"
-                placeholder="お探しですか？"
-              >
-
-              <div class="NavigationSearchForm__icon-wrapper">
-                
-              </div>
-            </div>
+            <% if user_signed_in? %>
+              Logged in as <strong><%= current_user.name %></strong>.
+              <%= link_to "Settings", edit_user_registration_path %> |
+              <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+            <% else %>
+              <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> |
+              <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
+            <% end %>
           </li>
 
           <li class="NavigationIconList__item">
-
           </li>
         </ul>
       </div>
