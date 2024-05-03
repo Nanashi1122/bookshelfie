@@ -11,6 +11,7 @@
 }
 
 .HeaderContainer {
+  width: 100%;
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -45,7 +46,6 @@
     align-items: center;
     display: flex;
     margin-left: 56px;
-    width: 100%;
   }
 }
 
@@ -70,7 +70,6 @@
   align-items: center;
   display: flex;
   gap: 48px;
-  width: 100%;
 
   @include xs-device-or-less {
     gap: 24px;
@@ -79,8 +78,7 @@
   &__item {
     &--search {
       display: flex;
-      flex-direction: row-reverse;
-      width: 100%;
+      flex-direction: row;
 
       &.open {
         ::before {
@@ -125,82 +123,7 @@
             }
           }
         }
-
-        .NavigationSearchForm {
-          display: flex;
-
-          &__icon {
-            margin: auto;
-          }
-
-          &__input {
-            display: block;
-          }
-        }
       }
-    }
-  }
-}
-
-.NavigationIconWrapper {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-
-  &__icon {
-    width: 24px;
-
-    @include xs-device-or-less {
-      width: 17px;
-    }
-  }
-
-  &__label {
-    color: $text-black;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 18px;
-    word-break: keep-all;
-
-    @include xs-device-or-less {
-      display: none;
-    }
-  }
-}
-
-.NavigationSearchForm {
-  display: none;
-  width: 100%;
-
-  @include sm-device-or-less {
-    position: fixed;
-    inset: 0;
-    margin: auto;
-    height: 55px;
-    width: 90%;
-    max-width: 500px;
-  }
-
-  &__icon-wrapper {
-    background-color: #000;
-    cursor: pointer;
-    display: flex;
-    width: 55px;
-    height: 55px;
-  }
-
-  &__input {
-    border: 1px solid #E0E0E0;
-    border-radius: 0;
-    box-shadow: none;
-    margin-top: 0;
-    padding: 8px 12px !important;
-    position: static;
-    width: 100% !important;
-
-    &::placeholder {
-      color: #BEC3C8;
     }
   }
 }

@@ -1,14 +1,10 @@
 <div class="Header">
   <nav class="NavigationBar" role="navigation">
-    <div class="Container HeaderContainer">
+    <div class="HeaderContainer">
       <div class="NavigationBar__menus">
         <%= link_to root_path do %>
           <%= image_tag("common/BookShelfie-logo.png", class: "ServiceLogo") %>
         <% end %>
-
-        <ul class="NavigationMenuList">
-
-        </ul>
       </div>
 
       <div class="NavigationBar__icons">
@@ -19,12 +15,10 @@
               <%= link_to "Settings", edit_user_registration_path %> |
               <%= link_to "Logout", destroy_user_session_path, method: :delete %>
             <% else %>
-              <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> |
-              <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
+              <%= link_to "Sign up", new_user_registration_path, class: 'navbar-link' %> |
+              <%= link_to "Login", new_user_session_path, class: 'navbar-link' %>
+              <%= button_to "ゲストログイン", { controller: 'users/sessions', action: 'guest_sign_in' }, method: :post %>
             <% end %>
-          </li>
-
-          <li class="NavigationIconList__item">
           </li>
         </ul>
       </div>
