@@ -11,3 +11,7 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+$(document).on('turbolinks:load', function() {
+  $('body').css('background-color', 'blue');
+});
