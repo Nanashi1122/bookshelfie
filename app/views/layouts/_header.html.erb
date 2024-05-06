@@ -9,15 +9,15 @@
 
       <div class="NavigationBar__icons">
         <ul class="NavigationIconList">
-          <li class="NavigationIconList__item NavigationIconList__item--search">
+          <li class="NavigationIconList__item">
             <% if user_signed_in? %>
               Logged in as <strong><%= current_user.name %></strong>.
-              <%= link_to "Settings", edit_user_registration_path %> |
-              <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+              <%= button_to "ユーザー設定", edit_user_registration_path, method: :get, class: "navbar-button" %>
+              <%= button_to "ログアウト", destroy_user_session_path, method: :get, class: "navbar-button" %>
             <% else %>
-              <%= link_to "Sign up", new_user_registration_path, class: 'navbar-link' %> |
-              <%= link_to "Login", new_user_session_path, class: 'navbar-link' %>
-              <%= button_to "ゲストログイン", { controller: 'users/sessions', action: 'guest_sign_in' }, method: :post %>
+              <%= button_to "新規登録", new_user_registration_path, method: :get, class: "navbar-button" %>
+              <%= button_to "ログイン", new_user_session_path, method: :get, class: "navbar-button" %>
+              <%= button_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "navbar-button" %>
             <% end %>
           </li>
         </ul>
