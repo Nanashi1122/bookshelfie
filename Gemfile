@@ -25,6 +25,7 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'rails-i18n'
 gem 'devise-i18n'
+gem 'faraday'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
