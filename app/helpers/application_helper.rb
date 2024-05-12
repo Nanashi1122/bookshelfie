@@ -1,6 +1,6 @@
 module ApplicationHelper
   def google_book_thumbnail(google_book)
-    google_book['volumeInfo']['imageLinks'].nil? ? 'sample.jpg' : google_book['volumeInfo']['imageLinks']['thumbnail']
+    google_book['volumeInfo']['imageLinks'].nil? ? 'common/sample.png' : google_book['volumeInfo']['imageLinks']['thumbnail']
   end
 
   #thumbnailはネストしている配置となっているのでdigを使って取り出す
@@ -13,6 +13,6 @@ module ApplicationHelper
       google_book['volumeInfo']['systemid'] = google_book['volumeInfo']['industryIdentifiers']&.select { |h| h["type"].include?("ISBN") }.first["identifier"]
     end
      #volumeInfoの中が必要な項目のみになるようsliceを使って絞りこむ
-    google_book['volumeInfo'].slice('title', 'authors', 'publishedDate', 'infoLink', 'bookImage', 'systemid', 'canonicalVolumeLink')
+    google_book['volumeInfo'].slice('title', 'authors', 'publisher', 'pageCount', 'publishedDate', 'infoLink', 'bookImage', 'systemid', 'canonicalVolumeLink')
   end
 end

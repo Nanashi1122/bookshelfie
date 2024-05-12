@@ -1,5 +1,12 @@
- <%= form_with url: search_books_path, local: true, method: :get do |f| %>
-  <%= f.search_field :search, class: "form-control", value: params[:search] %>
+<%= form_with url: search_books_path, local: true, method: :get do |f| %>
+  <%= label_tag :title, 'タイトル:' %>
+  <%= text_field_tag :title %>
+
+  <%= label_tag :author, '著者:' %>
+  <%= text_field_tag :author %>
+  
+  <%= label_tag :isbn, 'ISBN:' %>
+  <%= text_field_tag :isbn %>
   <%= f.submit "検索する" %>
 <% end %>
 
@@ -12,10 +19,13 @@
 
         <%= form_with model: @book, url: books_path, local: true, id: "new_book" do |f| %>
             <%= f.hidden_field :title, value: set_google_book_params(google_book)["title"] %>
+            <%= f.hidden_field :publisher, value: set_google_book_params(google_book)["publisher"] %>
+            <%= f.hidden_field :listplice, value: set_google_book_params(google_book)["title"] %>
+            <%= f.hidden_field :pagecount, value: set_google_book_params(google_book)["pageCount"] %>
+            <%= f.hidden_field :description, value: set_google_book_params(google_book)["canonicalVolumeLink"] %>
+            <%= f.hidden_field :ISBN, value: set_google_book_params(google_book)["systemid"] %>
             <%= f.hidden_field :published_date, value: set_google_book_params(google_book)["publishedDate"] %>
-            <%= f.hidden_field :info_link, value: set_google_book_params(google_book)["canonicalVolumeLink"] %>
             <%= f.hidden_field :image_link, value: set_google_book_params(google_book)["bookImage"] %>
-            <%= f.hidden_field :systemid, value: set_google_book_params(google_book)["systemid"] %>
             <% set_google_book_params(google_book)["authors"]&.each do |author| %>
                 <%= hidden_field_tag 'book[authors][]', author %>
             <% end %>

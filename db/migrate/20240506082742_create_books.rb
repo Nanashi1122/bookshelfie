@@ -4,8 +4,8 @@ class CreateBooks < ActiveRecord::Migration[6.1]
       t.integer :user_id
       t.string :title
       t.string :publisher
-      t.integer :listprice
-      t.integer :pagecount
+      t.integer :list_price
+      t.integer :page_count
       t.string :description
       t.string :ISBN
       t.string :published_date
