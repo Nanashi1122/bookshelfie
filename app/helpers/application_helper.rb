@@ -12,7 +12,9 @@ module ApplicationHelper
     if google_book['volumeInfo']['industryIdentifiers']&.select { |h| h["type"].include?("ISBN") }.present?
       google_book['volumeInfo']['systemid'] = google_book['volumeInfo']['industryIdentifiers']&.select { |h| h["type"].include?("ISBN") }.first["identifier"]
     end
+    #listPriceをdig
+    google_book['volumeInfo']['listPrice'] = google_book.dig('saleInfo', 'listPrice', 'amount')
      #volumeInfoの中が必要な項目のみになるようsliceを使って絞りこむ
-    google_book['volumeInfo'].slice('title', 'authors', 'publisher', 'pageCount', 'publishedDate', 'infoLink', 'bookImage', 'systemid', 'canonicalVolumeLink')
+    google_book['volumeInfo'].slice('title', 'authors', 'listPrice', 'publisher', 'pageCount', 'publishedDate', 'infoLink', 'bookImage', 'systemid', 'canonicalVolumeLink')
   end
 end
