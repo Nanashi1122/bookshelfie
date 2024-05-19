@@ -1,6 +1,21 @@
 <h1>Books List</h1>
-<ul>
-  <% @books.each do |book| %>
-    <li><%= book.title %></li>
+<ul class="books-list">
+  <% @books.each_slice(5) do |books_group| %>
+    <div class="books-row">
+      <% books_group.each do |book| %>
+        <li>
+          <% if book.image_link.present? %>
+            <div class="book-info">
+              <img src="<%= book.image_link %>" alt="<%= book.title %>">
+              <p><%= book.title %></p>
+            </div>
+          <% else %>
+            <%= image_tag "common/sample.png", alt: "No Image" %>
+            <p><%= book.title %></p>
+          <% end %>
+          
+        </li>
+      <% end %>
+    </div>
   <% end %>
 </ul>

@@ -1,3 +1,23 @@
-// Place all the styles related to the books controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.books-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.books-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.books-row li {
+  width: 20%; /* 5列にするためには幅を20%に設定 */
+}
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book-info img {
+  max-width: 100%;
+}
